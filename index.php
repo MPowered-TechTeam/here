@@ -40,7 +40,7 @@
 <h2>
 	Creature Creator
 </h2>
-<form>
+<form class="add_creature_form">
 	Name:
 	<br />
 	<input class="input-taller" type="text" name="name" required>
@@ -109,10 +109,13 @@
 	        $(".add_creature_form").submit(function() {
 
 	        	$.ajax({
-	        		
+	        		type: "POST",
+			        url: "ajax/add_creature.php",
+			        data: $('.add_creature_form').serialize(),
+			        success: function(text) {
+	       	 			$.pageslide.close();
+			        }
 	        	});
-
-	        	$.pageslide.close();
 	        	return false;
 	        });
 	    });
