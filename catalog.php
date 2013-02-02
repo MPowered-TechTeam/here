@@ -27,7 +27,7 @@
 		$votes
 		);
 
-	echo "<tr><td>Name</td><td>Votes</td><td></td><td>";
+	echo "<tr><td>Name</td><td>Type</td><td></td><td>";
 
 	while ($stmt->fetch()) {
 
@@ -56,10 +56,10 @@ function connect_to_db_with_sqli() {
 	# Database connection information   #
 	#####################################
 
-	$hostname = "localhost";
-	$database = "csescholars";
-	$username = "cseschol";
-	$password = "JAwNuTrJ";
+	$hostname = "mobilemon.freecloudhosting.com";
+	$database = "mydb";
+	$username = "me";
+	$password = "blueapple";
 
 	$conn = new mysqli($hostname, $username, $password, $database) or die("<p> Error connecting to database. </p>");
 
