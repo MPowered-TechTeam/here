@@ -11,8 +11,8 @@ $votes_plus1 = $_REQUEST['prev_votes'] + 1;
 
 function connect_to_db() {
 	####################################
-	# Database connection information   #
-	#####################################
+	# Database connection information  #
+	####################################
 
 	$hostname = "localhost";
 	$database = "csescholars";

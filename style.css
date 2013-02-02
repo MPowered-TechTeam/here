@@ -3,7 +3,7 @@
 }
 
 .slider_background {
-	background: black;
+	background: none;
 	color: white;
 }
 
@@ -32,4 +32,9 @@
 .input-taller {
 	height:auto !important;
 	width:auto !important;
+}
+
+.details {
+	background-color: white;
+	color: black;
 }
