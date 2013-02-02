@@ -21,7 +21,7 @@
 	    <div class="row-fluid">
 		    <div class="span6 offset3">
 			<p>
-				Pitch 17 out of Startup Weekend Ann Arbor.  Make up a creature and the best will make it into our mobile game!  Get uber creative and add attacks names.
+				Pitch 17 out of Startup Weekend Ann Arbor.  Make up a creature and the best will make it into our mobile game!  Get uber creative and add feature details and skill.
 			</p>
 		    </div>
 	    </div>

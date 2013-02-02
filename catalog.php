@@ -27,11 +27,17 @@
 		$votes
 		);
 
-	echo "<tr><td>Name</td><td>Type</td><td>Body</td><td>Feature</td><td>Skill</td><td>Votes</td><td></td><td>";
+	echo "<tr><td>Name</td><td>Votes</td><td></td><td>";
 
 	while ($stmt->fetch()) {
 
-		echo "<tr><td>$name</td><td>$type</td><td>$body</td><td>$feature</td><td>$skill</td><td>$votes</td><td><button class='btn'><i class='icon-arrow-up'></i></button></td><td>";
+		echo "<tr class='creature tooltiptopright'>
+				<td>$name</td>
+				<td>$votes</td>
+				<td><button class='btn vote_up' up_target=$id prev_votes=$votes>
+					<i class='icon-arrow-up'></i>
+				</button></td>
+				</tr>";
 	}
 
 function connect_to_db_with_sqli() {
@@ -52,6 +58,23 @@ function connect_to_db_with_sqli() {
 
 ?>
 </table>
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		alert('test');
+		$('.creature').tooltip();
+		$('.vote_up').click(function() {
+			$.ajax({
+	        		type: "POST",
+			        url: "ajax/update_creature.php",
+			        data: { id : $(this).attr('up_target') , prev_votes : $(this).attr('prev_votes')},
+			        success: function(text) {
+	       	 			
+			        }
+	        });
+	        $(this).css('blind');
+		});
+	});
+</script>
 </body>

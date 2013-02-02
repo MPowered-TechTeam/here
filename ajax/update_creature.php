@@ -3,13 +3,11 @@
 
 connect_to_db();
 
-$name = mysql_real_escape_string($_REQUEST['name']);
-$type = mysql_real_escape_string($_REQUEST['type']);
-$body = mysql_real_escape_string($_REQUEST['body']);
-$skill = mysql_real_escape_string($_REQUEST['skill']);
-$feature = mysql_real_escape_string($_REQUEST['feature']);
+$id = $_REQUEST['id'];
+$votes_plus1 = $_REQUEST['prev_votes'] + 1;
 
-mysql_query("INSERT INTO `monsters`(`name`, `type`, `body`, `feature`, `skill`, `votes`) VALUES ('$name', '$type', '$body', '$feature', '$skill', 1)");
+//mysql_query(
+	echo "UPDATE `monsters` SET `votes` = $votes_plus1 WHERE 'id' = $id";//);
 
 function connect_to_db() {
 	####################################
