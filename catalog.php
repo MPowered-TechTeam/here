@@ -56,9 +56,9 @@ function connect_to_db_with_sqli() {
 	# Database connection information   #
 	#####################################
 
-	$hostname = "mobilemon.freecloudhosting.com";
-	$database = "mydb";
-	$username = "me";
+	$hostname = "mobilemontable.cgnm4eaa2lfg.us-east-1.rds.amazonaws.com";
+	$database = "MobilemonDB";
+	$username = "mobile_tb";
 	$password = "blueapple";
 
 	$conn = new mysqli($hostname, $username, $password, $database) or die("<p> Error connecting to database. </p>");

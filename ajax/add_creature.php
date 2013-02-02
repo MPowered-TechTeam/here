@@ -16,10 +16,10 @@ function connect_to_db() {
 	# Database connection information   #
 	#####################################
 
-	$hostname = "localhost";
-	$database = "csescholars";
-	$username = "cseschol";
-	$password = "JAwNuTrJ";
+	$hostname = "mobilemontable.cgnm4eaa2lfg.us-east-1.rds.amazonaws.com";
+	$database = "MobilemonDB";
+	$username = "mobile_tb";
+	$password = "blueapple";
 
 	$db = mysql_connect($hostname, $username, $password);
 	if (!$db)
