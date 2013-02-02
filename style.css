@@ -1,0 +1,35 @@
+#add_form {
+	display: none;
+}
+
+.slider_background {
+	background: none;
+	color: white;
+}
+
+.slider_background h2 {
+	text-align: center;
+}
+
+.container {
+
+	line-height: 180%;
+}
+
+.title {
+	text-align: center;
+}
+
+.catalog {
+	float: right;
+}
+
+.everything {
+	height: 100%;
+	vertical-align: center;
+}
+
+.input-taller {
+	height:auto !important;
+	width:auto !important;
+}
