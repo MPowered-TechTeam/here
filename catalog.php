@@ -13,18 +13,13 @@
 
 	$conn = connect_to_db_with_sqli();
 
-	$query = "SELECT * FROM `monsters` WHERE 1 ORDER BY `votes` DESC";
+	$query = "SELECT * FROM `sql_inject_kudos` WHERE 1";
 	
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
 	$stmt->bind_result(
 		$id,
-		$name,
-		$type,
-		$body,
-		$feature,
-		$skill,
-		$votes
+		$name
 		);
 
 	echo "<tr><td>Name</td><td>Type</td><td></td><td>";
@@ -32,23 +27,9 @@
 	while ($stmt->fetch()) {
 
 		echo "<tr class='creature'>
-				<td>$name</td>
-				<td>$type</td>
-				<td width='50px'><button class='btn vote_up' up_target=$id prev_votes=$votes>
-					<i class='icon-arrow-up'></i>
-				</button></td>
+				<td>$name</td>				
 			</tr>
-			<tr class='details'>
-				<td>
-					$skill
-				</td>
-				<td>
-					$body
-				</td>
-				<td width='50px'>
-					$feature
-				</td>
-			</tr>";
+			";
 	}
 
 function connect_to_db_with_sqli() {
@@ -56,10 +37,10 @@ function connect_to_db_with_sqli() {
 	# Database connection information   #
 	#####################################
 
-	$hostname = "mobilemontable.cgnm4eaa2lfg.us-east-1.rds.amazonaws.com";
-	$database = "MobilemonDB";
-	$username = "mobile_tb";
-	$password = "blueapple";
+	$hostname = "";
+	$database = "";
+	$username = "";
+	$password = "";
 
 	$conn = new mysqli($hostname, $username, $password, $database) or die("<p> Error connecting to database. </p>");
 
@@ -71,26 +52,4 @@ function connect_to_db_with_sqli() {
 </table>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$('.vote_up').click(function() {
-			$.ajax({
-	        		type: "POST",
-			        url: "ajax/update_creature.php",
-			        data: { id : $(this).attr('up_target') , prev_votes : $(this).attr('prev_votes')},
-			        success: function(text) {
-	       	 			
-			        }
-	        });
-	        $(this).css('blind');
-		});
-		$('.details').hide();
-		$('.creature').hover(function() {
-			$(this).next().show();
-		});
-		$('.creature').mouseout(function() {
-			$(this).next().hide();
-		});
-	});
-</script>
 </body>

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Mobilemon</title>
+		<title>MPowered SQL Inject</title>
 		<!-- Bootstrap -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	  	<link rel="stylesheet" type="text/css" href="style.css" />
@@ -16,75 +16,48 @@
 		<br />
 		<br />
 		<br />
-		<h1 class="title">Mobilemon</h1>
+		<h1 class="title">MPowered SQL Injection Challenge</h1>
 
 	    <div class="row-fluid">
 		    <div class="span6 offset3">
 			<p>
-				Pitch 17 out of Startup Weekend Ann Arbor.  Make up a creature and the best will make it into our mobile game!  Get uber creative and add feature details and skill.
-			</p>
+				What better way to learn some database coding than breaking the stuff someone else made?  To log into this website you need to understand the idea of a mysql query.
+				Exploit the login process and your name will be added to the kudos board.  Good luck!
 		    </div>
 	    </div>
 	    <br />
 		<div class="row-fluid">
 		    <div class="span2 offset3">
-				<a class="btn btn-primary btn-large add_creature">Create</a>
+				<a class="btn btn-primary btn-large open_login">Login</a>
 		    </div>
 		    <div class="span2 offset2">
-				<a class="btn btn-primary btn-large catalog">Catalog</a>
+				<a class="btn btn-primary btn-large catalog">Kudos</a>
 		    </div>
 	    </div>
 	</div>
 
 <div id="add_form" class="slider_background">
 <h2>
-	Creature Creator
+	Login
 </h2>
-<form class="add_creature_form">
+<form class="login_form">
 	Name:
 	<br />
-	<input class="input-taller" type="text" name="name" required>
+	<input class="input-taller" type="text" placeholder="name for kudos table" name="name" required>
 	<br />
-	Type:
+	Login:
 	<br />
-	<select name="type" >
-		<option value="Dark">Dark</option>
-		<option value="Earth">Earth</option>
-		<option value="Energy">Energy</option>
-		<option value="Flame">Flame</option>
-		<option value="Light">Light</option>
-		<option value="Vegetation">Vegetation</option>
-		<option value="Water">Water</option>
-		<option value="Wind">Wind</option>
-	</select>
+	<input class="input-taller" type="text" name="login">
 	<br />
-	Body Style:
+	Password:
 	<br />
-	<select name="body">
-		<option value="Head">Head</option>
-		<option value="Head_and_body">Head and body</option>
-		<option value="Slime">Slime</option>
-		<option value="Snake">Snake</option>
-		<option value="Multibody">Multibody</option>
-		<option value="2_Legs">2 Legs</option>
-		<option value="4_Legs">4 Legs</option>
-	</select>
-	<br />
-	Feature:
-	<br />
-	<input class="input-taller" type="text" placeholder="exp: nose, tails, or fins." name="feature">
-	<br />
-	Skill:
-	<br />
-	<select name="skill">
-		<option value="Fast">Fast</option>
-		<option value="Powerful">Powerful</option>
-		<option value="Protective">Protective</option>
-		<option value="Stocky">Stocky</option>
-	</select>
+	<input class="input-taller" type="password" placeholder="no it is not password" name="password">
 	<br />
 	<button type="submit" class="btn btn-primary">Submit</button>
 	<button class="btn cancel">Cancel</button>
+	<br />
+	<br />
+	<div class="result_text"></div>
 </form>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </div>
@@ -96,7 +69,7 @@
 
     	$(function() {
 	        /* Default pageslide, moves to the right */
-	        $(".add_creature").pageslide({ direction: "right", modal: true, href: '#add_form' });
+	        $(".open_login").pageslide({ direction: "right", modal: true, href: '#add_form' });
 	        
 	        /* Slide to the left, and make it model (you'll have to call $.pageslide.close() to close) */
 	        $(".catalog").pageslide({ direction: "left", modal: true, href: 'catalog.php' });
@@ -106,14 +79,14 @@
 	        	$.pageslide.close();
 	        });
 
-	        $(".add_creature_form").submit(function() {
+	        $(".login_form").submit(function() {
 
 	        	$.ajax({
 	        		type: "POST",
-			        url: "ajax/add_creature.php",
-			        data: $('.add_creature_form').serialize(),
+			        url: "ajax/open_login.php",
+			        data: $('.login_form').serialize(),
 			        success: function(text) {
-	       	 			$.pageslide.close();
+			        	$('.result_text').html(text);
 			        }
 	        	});
 	        	return false;
