@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 24, 2013 at 11:07 PM
+-- Generation Time: Feb 28, 2013 at 12:39 AM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -23,21 +23,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sql_inject_kudos`
+-- Table structure for table `attend`
 --
 
-CREATE TABLE IF NOT EXISTS `sql_inject_kudos` (
+CREATE TABLE IF NOT EXISTS `attend` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(25) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `uniqname` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `sql_inject_kudos`
---
-
-INSERT INTO `sql_inject_kudos` (`id`, `name`) VALUES
-(3, 'Jeff');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -38,3 +38,7 @@
 	background-color: white;
 	color: black;
 }
+
+.event_item:hover {
+	color: #DDDDDD;
+}

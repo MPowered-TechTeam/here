@@ -13,21 +13,27 @@
 
 	$conn = connect_to_db_with_sqli();
 
-	$query = "SELECT * FROM `sql_inject_kudos` WHERE 1";
+	$query = "SELECT * FROM 'event' WHERE 1";
 	
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
 	$stmt->bind_result(
 		$id,
-		$name
+		$name,
+		$creator,
+		$long,
+		$lat
 		);
 
 	echo "<tr><td>Name</td><td>Type</td><td></td><td>";
 
 	while ($stmt->fetch()) {
 
-		echo "<tr class='creature'>
-				<td>$name</td>				
+		echo "<tr class='event_item'>
+				<td>$name</td>	
+				<td>$creator</td>
+				<td>$long</td>
+				<td>$lat</td>		
 			</tr>
 			";
 	}
@@ -37,9 +43,9 @@ function connect_to_db_with_sqli() {
 	# Database connection information   #
 	#####################################
 
-	$hostname = "";
-	$database = "";
-	$username = "";
+	$hostname = "localhost";
+	$database = "mpowered";
+	$username = "root";
 	$password = "";
 
 	$conn = new mysqli($hostname, $username, $password, $database) or die("<p> Error connecting to database. </p>");
