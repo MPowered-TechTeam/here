@@ -1,29 +1,22 @@
 <?php
 
 ?>
+<!DOCTYPE html>
 <head>
 	<title>Submit Page</title>
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link rel="stylesheet" type="text/css" href="style.css" />
-	<link rel="stylesheet" type="text/css" href="pageslide/jquery.pageslide.css" />
 </head>
 <body>
+	<h1>Radius</h1>
 	<form class="login_form">
-	Name:
-	<br />
-	<input id="name" class="input-taller" type="text" placeholder="Name" name="name" required>
-	<br />
-	Uniqname:
-	<br />
-	<input id="uniqname" class="input-taller" type="text" placeholder="Uniqname" name="login">
-	<br />
-	<button type="submit" class="btn btn-primary">Sign In</button>
-	<button class="btn cancel">Cancel</button>
-	<br />
-	<br />
-	<div class="result_text"></div>
-</form>
+		<br />
+		<input id="uniqname" class="input-taller" type="text" placeholder="Uniqname" name="login"><br />
+		<button type="submit" class="btn btn-inverse">Sign In</button>
+		<!--<button class="btn cancel">Cancel</button>-->
+		<div class="result_text"></div>
+	</form>
 </body>
 
 <script>
