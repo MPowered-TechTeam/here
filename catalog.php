@@ -2,18 +2,15 @@
 
 ?>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link rel="stylesheet" type="text/css" href="style.css" />
+<!--<link rel="stylesheet" type="text/css" href="style.css" />-->
 <body class="slider_background">
-<h2>
-	Catalog
-</h2>
 
 <table class="table">
 <?php
 
 	$conn = connect_to_db_with_sqli();
 
-	$query = "SELECT * FROM 'event' WHERE 1";
+	$query = "SELECT * FROM event WHERE 1";
 	
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
