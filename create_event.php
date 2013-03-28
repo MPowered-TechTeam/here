@@ -39,7 +39,6 @@
 	<br />
 	<div class="result_text"></div>
 </form>
-<script src="bootstrap/js/bootstrap.min.js"></script>
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
