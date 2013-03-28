@@ -12,9 +12,11 @@
 <body>
 	<div class="confirm_message">
 		<div>
-			<strong>Awesome! You have signed into <?php echo $_GET["event_name"]; ?>.</strong>
+			<strong>Awesome, <?php echo $_GET["login"];?>! 
+				You signed into <?php echo $_GET["event_name"]; ?>.</strong>
 		</div>
 	</div>
+	<a class="btn btn-inverse" href="catalog.php"><i class="icon-arrow-left"></i> Event List</a>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
