@@ -7,7 +7,7 @@ if(!isset($_COOKIE['uniqname']))
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <style type="text/css">
-.navbar
+
 .brand
 {
 	margin-top: 10px; 
