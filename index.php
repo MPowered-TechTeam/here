@@ -1,6 +1,6 @@
 <?php
 	if (isset($_COOKIE['uniqname'])) {
-		header('Location: create_event.php' ) ;	
+		header('Location: nav.php' ) ;	
 	}
 	
 ?>
@@ -13,9 +13,9 @@
 </head>
 <body>
 	<h1>Radius</h1>
-	<form class="login_form">
+	<form class="login_form" method="post">
 		<br />
-		<input id="uniqname" class="input-taller" type="text" placeholder="Uniqname" name="login"><br />
+		<input id="uniqname" name="uniqname"class="input-taller" type="text" placeholder="Uniqname" name="login"><br />
 		<button type="submit" class="btn btn-inverse">Sign In</button>
 		<!--<button class="btn cancel">Cancel</button>-->
 		<div class="result_text"></div>
@@ -24,10 +24,10 @@
 
 <script>
 
-    $(function() {
+   // $(function() {
 	    $(".login_form").submit(function() {
-	    	setCookie("uniqname", document.getElementById("uniqname").value);
-	    	window.location="create_event.php";
+	    	setCookie("uniqname", document.getElementById("uniqname").value, 365);
+	    	window.location="nav.php";
         });
-    });
+    //});
 </script>
