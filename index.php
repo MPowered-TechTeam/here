@@ -27,6 +27,7 @@
     $(function() {
 	    $(".login_form").submit(function() {
 	    	setCookie("uniqname", document.getElementById("uniqname").value);
+	    	window.location="create_event.php";
         });
     });
 </script>
