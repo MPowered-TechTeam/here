@@ -1,5 +1,8 @@
 <?php
-
+	if (isset($_COOKIE['uniqname'])) {
+		header('Location: create_event.php' ) ;	
+	}
+	
 ?>
 <!DOCTYPE html>
 <head>
@@ -23,16 +26,7 @@
 
     $(function() {
 	    $(".login_form").submit(function() {
-
-        	$.ajax({
-        		type: "POST",
-		        url: "ajax/open_login.php",
-		        data: $('.login_form').serialize(),
-		        success: function(text) {
-		        	$('.result_text').html(text);
-		        }
-        	});
-        	return false;
+	    	setCookie("uniqname", document.getElementById("uniqname").value);
         });
     });
 </script>
