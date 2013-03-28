@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>MPowered SQL Inject</title>
+		<title>Create Event</title>
 		<!-- Bootstrap -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	  	<!--<link rel="stylesheet" type="text/css" href="style.css" />-->
@@ -19,29 +19,33 @@
 <form class="login_form">
 	Name of Event:
 	<br />
-	<input class="input-taller" type="text" placeholder="name for kudos table" name="name" required>
-	<br />
-	Creator:
-	<br />
-	<input class="input-taller" type="text" name="creator">
-	<br />
-	Latitude:
-	<br />
-	<input class="input-taller" type="text" placeholder="Latitude" name="lat">
-	<br />
-	Longitude:
-	<br />
-	<input class="input-taller" type="text" placeholder="Longitude" name="long">
-	<br />
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<input class="input-taller" type="text" placeholder="Event name" name="name" required>
+	<input type="submit" class="btn btn-primary" >Submit</input>
 	<button class="btn cancel">Cancel</button>
 	<br />
 	<br />
 	<div class="result_text"></div>
 </form>
+
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(function() {
+	    $(".login_form").submit(function() {
+	    		alert("Test");
+        	$.ajax({
+        		type: "POST",
+		        url: "ajax/create_event_database.php",
+		        data: $('.login_form').serialize(),
+		        success: function(text) {
+		        	$('.result_text').html(text);
+		        }
+        	});
+        	return false;
+        });
+    });
+</script>
 </body>
 </html>
