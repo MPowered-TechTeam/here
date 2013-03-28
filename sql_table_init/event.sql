@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 24, 2013 at 11:07 PM
+-- Generation Time: Mar 27, 2013 at 11:39 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -23,22 +23,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sql_inject_login`
+-- Table structure for table `event`
 --
 
-CREATE TABLE IF NOT EXISTS `sql_inject_login` (
-  `login` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL,
+CREATE TABLE IF NOT EXISTS `event` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `name` varchar(50) NOT NULL,
+  `creator` varchar(30) NOT NULL,
+  `long` double NOT NULL,
+  `lat` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `sql_inject_login`
+-- Dumping data for table `event`
 --
 
-INSERT INTO `sql_inject_login` (`login`, `password`, `id`) VALUES
-('Jeff', 'bobandbetty', 1);
+INSERT INTO `event` (`id`, `name`, `creator`, `long`, `lat`) VALUES
+(1, 'MPowered Tech meeting', 'Jeff', 1, 1),
+(2, 'MPowered Tech meeting', 'Jeff', 1, 1),
+(3, 'MPowered Tech meeting', 'Jeff', 1, 1),
+(4, 'a', 'b', 2, 2),
+(5, 'a', 'b', 2, 2),
+(6, 'a', 'bc', 2, 2),
+(7, 'a', 'aa', 2, 2),
+(8, 'a', 'aa', 2, 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
