@@ -22,6 +22,8 @@
 	<input class="input-taller" type="text" placeholder="Event name" name="name" required>
 	<button type="submit" class="btn btn-primary" >Submit</button>
 	<button class="btn cancel">Cancel</button>
+	<input type="hidden" name="lat"></input>
+	<input type="hidden" name="long"></input>
 	<br />
 	<br />
 	<div class="result_text"></div>
@@ -35,6 +37,9 @@
     $(function() {
 	    $(".login_form").submit(function() {
 	    		alert("Test");
+	  			document.getElementsByName("lat").value = position.coords.latitude;
+	  			document.getElementsByName("long").value = position.coords.longitude;
+	  			
         	$.ajax({
         		type: "POST",
 		        url: "ajax/create_event_database.php",
