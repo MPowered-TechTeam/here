@@ -20,7 +20,7 @@
 	Name of Event:
 	<br />
 	<input class="input-taller" type="text" placeholder="Event name" name="name" required>
-	<input type="submit" class="btn btn-primary" >Submit</input>
+	<button type="submit" class="btn btn-primary" >Submit</button>
 	<button class="btn cancel">Cancel</button>
 	<br />
 	<br />

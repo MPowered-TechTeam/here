@@ -14,15 +14,15 @@ $long = 1.0;
 // Check to see if an event is already created
 $check_uniqname = 'SELECT * FROM `event` WHERE 1';
 
-$query = "INSERT INTO  event (`event_name`, `uniqname`, `long`, `lat`) VALUES (?, ?, ?, ?)";
+$query = "INSERT INTO `event`(`name`, `creator`, `long`, `lat`) VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($query);
-	$stmt->bind_param('ssdd', 
-		$name,
-		$uniqname,
-		$long,
-		$lat
-		);
-	$stmt->execute();
+$stmt->bind_param('ssdd', 
+	$name,
+	$uniqname,
+	$long,
+	$lat
+	);
+$stmt->execute();
 
 
 //if (1) 
