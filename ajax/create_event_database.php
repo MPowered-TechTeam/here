@@ -12,6 +12,10 @@ $long = $_REQUEST['long'];
 // Check to see if an event is already created
 $check_uniqname = 'SELECT * FROM `event` WHERE 1';
 
+echo $lat;
+echo "<br/>";
+echo $long;
+
 $query = "INSERT INTO `event`(`name`, `creator`, `long`, `lat`) VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($query);
 $stmt->bind_param('ssdd', 
@@ -22,7 +26,7 @@ $stmt->bind_param('ssdd',
 	);
 $stmt->execute();
 
-
+echo "Submitted";
 //if (1) 
 //{
 	// Get lat and long
