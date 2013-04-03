@@ -6,10 +6,8 @@ $name = $_REQUEST['name'];
 $uniqname = "mlripper";
 //$uniqname = $_COOKIE["uniqname"];
 // Get lat and long
-$lat = 1.0;
-$long = 1.0;
-
-
+$lat = $_REQUEST['lat'];
+$long = $_REQUEST['long'];
 
 // Check to see if an event is already created
 $check_uniqname = 'SELECT * FROM `event` WHERE 1';

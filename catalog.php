@@ -12,6 +12,8 @@
 
 	$query = "SELECT * FROM event WHERE 1";
 	
+//SELECT DeviceType, ClientName, UniqueIdentifier, ( 3959 * acos( cos( radians('%s') ) * cos( radians( Latitude ) ) * cos( radians( Longitude ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( Latitude ) ) ) ) AS distance FROM Users Where Connected = 1 and UniqueIdentifier != '$uniqueIdentifer' HAVING distance < '%s' ORDER BY distance LIMIT 0 , 20
+
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
 	$stmt->bind_result(
