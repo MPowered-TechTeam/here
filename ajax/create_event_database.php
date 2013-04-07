@@ -5,6 +5,7 @@ $conn = connect_to_db_with_sqli();
 $name = $_REQUEST['name'];
 $uniqname = "mlripper";
 //$uniqname = $_COOKIE["uniqname"];
+
 // Get lat and long
 $lat = $_REQUEST['lat'];
 $long = $_REQUEST['long'];
