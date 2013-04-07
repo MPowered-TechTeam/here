@@ -35,6 +35,9 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script>
     $(function() {
+
+		getLocation();
+
 	    $(".login_form").submit(function() {
 	    		getLocation();
         	$.ajax({
