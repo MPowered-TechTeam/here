@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 27, 2013 at 11:39 PM
+-- Generation Time: Apr 07, 2013 at 11:05 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -33,21 +33,15 @@ CREATE TABLE IF NOT EXISTS `event` (
   `long` double NOT NULL,
   `lat` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `event`
 --
 
 INSERT INTO `event` (`id`, `name`, `creator`, `long`, `lat`) VALUES
-(1, 'MPowered Tech meeting', 'Jeff', 1, 1),
-(2, 'MPowered Tech meeting', 'Jeff', 1, 1),
-(3, 'MPowered Tech meeting', 'Jeff', 1, 1),
-(4, 'a', 'b', 2, 2),
-(5, 'a', 'b', 2, 2),
-(6, 'a', 'bc', 2, 2),
-(7, 'a', 'aa', 2, 2),
-(8, 'a', 'aa', 2, 2);
+(18, 'R2220', 'mlripper', -83.73820359999999, 42.27253779999999),
+(25, 'MPowered Talent Meeting', 'mlripper', -83.7362886, 42.27522860000001);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
