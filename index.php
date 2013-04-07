@@ -2,7 +2,7 @@
 	if (isset($_COOKIE['uniqname'])) {
 		header('Location: nav.php' ) ;	
 	}
-	
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -28,10 +28,9 @@
 <script>
 
    $(function() {
-	    $(".login_form").submit(function() {
-	    	
+	    $(".login_form").submit(function() {    	
 	    	setCookie("uniqname", document.getElementById("uniqname").value, 365);
-	    	
+
 	    	return true;
         });
     });
