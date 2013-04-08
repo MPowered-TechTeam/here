@@ -1,6 +1,6 @@
 <?php
 	if (isset($_COOKIE['uniqname'])) {
-		header('Location: nav.php' ) ;	
+		header('Location: nav.php' );	
 	}
 
 ?>

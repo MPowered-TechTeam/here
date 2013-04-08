@@ -13,21 +13,21 @@
 <body class="everything">
 
 <div id="add_form" >
-<h2>
-	Create Event
-</h2>
-<form class="login_form">
-	Name of Event:
-	<br />
-	<input class="input-taller" type="text" placeholder="Event name" name="name" required>
-	<button type="submit" class="btn btn-primary" >Submit</button>
-	<button class="btn cancel">Cancel</button>
-	<input type="hidden" id="lat" name="lat" value="0"></input>
-	<input type="hidden" id="long" name="long" value="0"></input>
+	<h2>
+		Create Event
+	</h2>
+	<form class="login_form">
+		Name of Event:
+		<br />
+		<input type="hidden" id="lat" name="lat" value="0"></input>
+		<input type="hidden" id="long" name="long" value="0"></input>
+		<input class="input-taller" type="text" placeholder="Event name" name="name" required>
+		<button type="submit" class="btn btn-primary" >Submit</button>
+		<button class="btn cancel">Cancel</button>
+	</form>
 	<br />
 	<br />
 	<div class="result_text"></div>
-</form>
 
 </div>
 
@@ -36,19 +36,8 @@
 <script>
     $(function() {
 
-		getLocation();
-
 	    $(".login_form").submit(function() {
-	    		getLocation();
-        	$.ajax({
-        		type: "POST",
-		        url: "ajax/create_event_database.php",
-		        data: $('.login_form').serialize(),
-		        success: function(text) {
-
-		        	$('.result_text').html(text);
-		        }
-        	});
+	    	getLocation();
         	return false;
         });
     });
@@ -57,17 +46,26 @@
 	{
 	  	if (navigator.geolocation)
 	    {
-	    	navigator.geolocation.getCurrentPosition(showPosition);
+	    	navigator.geolocation.getCurrentPosition(setPosition);
 	    }
 	  	else
 	  	{
 	  		$('.result_text').html("Geolocation is not supported by this browser.");
 		}
 	}
-	function showPosition(position)
+	function setPosition(position)
 	  { 
 			document.getElementById("lat").value = position.coords.latitude;
 			document.getElementById("long").value = position.coords.longitude;
+			$.ajax({
+        		type: "POST",
+		        url: "ajax/create_event_database.php",
+		        data: $('.login_form').serialize(),
+		        success: function(text) {
+
+		        	$('.result_text').html(text);
+		        }
+        	});
 	  }
 </script>
 </body>

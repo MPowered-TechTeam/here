@@ -3,7 +3,8 @@
 $conn = connect_to_db_with_sqli();
 
 $name = $_REQUEST['name'];
-$uniqname = "mlripper";
+$uniqname = $_COOKIE['uniqname'];
+
 //$uniqname = $_COOKIE["uniqname"];
 
 // Get lat and long
@@ -13,6 +14,8 @@ $long = $_REQUEST['long'];
 // Check to see if an event is already created
 $check_uniqname = 'SELECT * FROM `event` WHERE 1';
 
+echo $uniqname;
+echo "<br/>";
 echo $lat;
 echo "<br/>";
 echo $long;
@@ -27,6 +30,7 @@ $stmt->bind_param('ssdd',
 	);
 $stmt->execute();
 
+echo "<br/>";
 echo "Submitted";
 //if (1) 
 //{

@@ -42,23 +42,21 @@ if(!isset($_COOKIE['uniqname']))
 
 
 
-<html>
-	<div class="navbar">
-	  <div class="navbar-inner">
-	    <a class="brand" href="#"><span id="uniqtext"><?php echo $_COOKIE["uniqname"]?><span></a>
-	    <ul class="nav">
-	      <li class="icon"><img class="logout" src="logout.png"></li>
-	      <li class="icon"><a href="#"><img class="plus1" src="plus1.png"></a></li>
-	    </ul>
-	  </div>
-	</div>
-<html>
-
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#"><span id="uniqtext"><?php echo $_COOKIE["uniqname"]?><span></a>
+    <ul class="nav">
+      <li class="icon"><img class="logout" src="logout.png"></li>
+      <li class="icon"><a href="#"><img class="plus1" src="plus1.png"></a></li>
+    </ul>
+  </div>
+</div>
+<script src="index_cookie.js"></script>
 <script type="text/javascript">
 $(".logout").click(
 	function()
 	{
-		<?php setcookie("uniqname", "",  time()-3600); ?>
+		setCookie("uniqname", "",  -1);
 		window.location = "index.php";
 	}
 )

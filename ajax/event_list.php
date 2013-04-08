@@ -10,29 +10,57 @@
 
 	$conn = connect_to_db_with_sqli();
 
-	$query = "SELECT * FROM event WHERE 1";
+	$my_long = $_REQUEST['my_long'];
+	$my_lat = $_REQUEST['my_lat'];
+
+	//Query modified from http://stackoverflow.com/questions/2441757/optimising-sql-distance-query
+	$query = "
+SELECT `id`, `name`, `creator`, 
+(
+  (6371 
+     * acos(
+        cos(radians(?))
+        * cos(radians(`lat`))
+        * cos(radians(`long`) - radians(?))
+        + sin(radians(?))
+        * sin(radians(`lat`))
+      )
+  )
+)
+AS distance
+FROM `event`
+HAVING `distance` < 5
+ORDER BY `distance`";
 	
-//SELECT DeviceType, ClientName, UniqueIdentifier, ( 3959 * acos( cos( radians('%s') ) * cos( radians( Latitude ) ) * cos( radians( Longitude ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( Latitude ) ) ) ) AS distance FROM Users Where Connected = 1 and UniqueIdentifier != '$uniqueIdentifer' HAVING distance < '%s' ORDER BY distance LIMIT 0 , 20
 
 	$stmt = $conn->prepare($query);
+	$stmt->bind_param('ddd',
+		$my_lat,
+		$my_long,
+		$my_lat
+		);
 	$stmt->execute();
 	$stmt->bind_result(
 		$id,
 		$name,
 		$creator,
-		$long,
-		$lat
+		$distance
 		);
 
-	echo "<tr><td>Name</td><td>Type</td><td></td><td>";
+	echo "<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Creator</td>
+			<td>Distance</td>
+		</tr>";
 
 	while ($stmt->fetch()) {
 
 		echo "<tr class='event_item'>
+				<td>$id</td>		
 				<td>$name</td>	
 				<td>$creator</td>
-				<td>$long</td>
-				<td>$lat</td>		
+				<td>$distance</td>
 			</tr>
 			";
 	}
