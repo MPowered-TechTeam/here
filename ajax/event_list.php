@@ -70,10 +70,10 @@ function connect_to_db_with_sqli() {
 	# Database connection information   #
 	#####################################
 
-	$hostname = "localhost";
+	$hostname = "webapps-db.web.itd.umich.edu/mpowered";
 	$database = "mpowered";
-	$username = "root";
-	$password = "";
+	$username = "mpowered";
+	$password = "halifax92";
 
 	$conn = new mysqli($hostname, $username, $password, $database) or die("<p> Error connecting to database. </p>");
 
