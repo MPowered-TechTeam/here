@@ -4,6 +4,7 @@
 if(!isset($_COOKIE['uniqname']))
 	header( 'Location: index.php');
 ?>
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="index_cookie.js"></script>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -18,6 +19,7 @@ if(!isset($_COOKIE['uniqname']))
     </ul>
   </div>
 </div>
+
 
 //JASON"S STUFFFFF... I WAS ONLY TESTINGGGGG
 //***********************************************
@@ -52,7 +54,50 @@ if(!isset($_COOKIE['uniqname']))
 </style>
 //*************************************************
 
+<div class="tableOfEvents">
+  <table>
+    <tr class='event_item'>
+        <td>$id</td>    
+        <td>$name</td>  
+        <td>$creator</td>
+        <td>$distance</td>
+      </tr>
+  </table>
+</div>
+
+<style>
+  .tableOfEvents
+  {
+    margin: 0 auto;
+    width: 100%;
+
+  }
+
+
+</style>
+
+
+>>>>>>> c9b27dbd2f82be3bb3f4d809094af39543a11bbc
+
 <script type="text/javascript">
+$(document).ready(
+  function()
+  {
+    var ajaxCall = $.ajax("ajax/event_list.php")
+    .done
+    (
+        function(result)
+        {
+            alert("success!");
+            $(".tableOfEvents").append(result);
+        }
+    )
+    .fail(function(result){alert("failed....");})
+}
+
+
+
+
 $(function() {
   $(".logout").click(
   	function()
