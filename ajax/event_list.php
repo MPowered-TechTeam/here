@@ -65,6 +65,7 @@ ORDER BY `distance`";
 			";
 	}
 
+
 function connect_to_db_with_sqli() {
 	####################################
 	# Database connection information   #
