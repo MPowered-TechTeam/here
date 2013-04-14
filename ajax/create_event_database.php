@@ -1,4 +1,5 @@
 <?php
+include("../include/mysql_connect.php");
 
 $conn = connect_to_db_with_sqli();
 
@@ -42,19 +43,4 @@ echo "Submitted";
 //	echo "Login Error...";
 //}
 
-
-function connect_to_db_with_sqli() {
-	####################################
-	# Database connection information   #
-	#####################################
-
-	$hostname = "localhost";
-	$database = "mpowered";
-	$username = "root";
-	$password = "";
-
-	$conn = new mysqli($hostname, $username, $password, $database) or die("<p> Error connecting to database. </p>");
-
-	return $conn;
-}
 ?>

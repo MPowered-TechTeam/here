@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <?php
 
+include("include/mysql_connect.php");
+
 $conn = connect_to_db_with_sqli();
 
 //$id = $_GET[]; 
-//$event_id = ;
+//$event_id;
 //$uniqname
-$event_id = 3;
-$uniqname = "jasleung";
+$event_id = $_REQUEST['event_id'];
+$uniqname = $_COOKIE['uniqname'];
+
+if (!isset($_REQUEST['event_id'])) {
+	
+	die("ERROR: Please specify event_id. 'confirm.php?event_id='");
+}
+
+$query = "SELECT name FROM `event` WHERE id=?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param('d', 
+	$event_id
+	);
+$stmt->bind_result(
+	$event_name
+	);
+$stmt->execute();
+if ($stmt->num_rows == 0) {
+
+	die("ERROR: Invalid event_id");
+}
+$stmt->fetch();
+$stmt->close();
 
 // check the table to make sure they haven't signed in already
-$check = "SELECT * FROM attend WHERE uniqname=?";
+$check = "SELECT * FROM attend WHERE event_id=? AND uniqname=?";
 $stmt = $conn->prepare($check);
-$stmt->bind_param('s', 
+$stmt->bind_param('is',
+	$event_id, 
 	$uniqname
 	);
 $stmt->execute();
@@ -28,28 +52,13 @@ if($stmt->num_rows == 0)
 		$uniqname
 		);
 	$stmt->execute();
-	echo "You signed in";
+	$message = "You signed in to " . $event_name;
 }
 else 
 {
-	echo "you already signed in";
+	$message = "You already signed in to " . $event_name;
 }
 
-
-function connect_to_db_with_sqli() {
-	####################################
-	# Database connection information   #
-	#####################################
-
-	$hostname = "localhost";
-	$database = "mpowered";
-	$username = "root";
-	$password = "";
-
-	$conn = new mysqli($hostname, $username, $password, $database) or die("<p> Error connecting to database. </p>");
-
-	return $conn;
-}
 ?>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -65,11 +74,11 @@ function connect_to_db_with_sqli() {
 <body>
 	<div class="confirm_message">
 		<div>
-			<strong>Awesome, <?php echo $_GET["uniqname"];?>! 
-				You signed into <?php echo $_GET["event_id"]; ?>.</strong>
+			<strong>Awesome, <?php echo $_COOKIE["uniqname"];?>! 
+				<?php echo $message; ?>.</strong>
 		</div>
 	</div>
-	<a class="btn btn-inverse" href="catalog.php"><i class="icon-arrow-left"></i> Event List</a>
+	<a class="btn btn-inverse" href="nav.php"><i class="icon-arrow-left"></i> Event List</a>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>

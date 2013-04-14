@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 
 <?php
+include("include/mysql_connect.php");
+
+//Check if cookie isn't set
 if(!isset($_COOKIE['uniqname']))
 	header( 'Location: index.php');
+
+//Check if user created event
+
 ?>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -56,12 +62,12 @@ if(!isset($_COOKIE['uniqname']))
 
 <div class="tableOfEvents">
   <table>
-    <tr class='event_item'>
-        <td>$id</td>    
-        <td>$name</td>  
-        <td>$creator</td>
-        <td>$distance</td>
-      </tr>
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Creator</td>
+      <td>Distance</td>
+    </tr>
   </table>
 </div>
 
@@ -76,29 +82,10 @@ if(!isset($_COOKIE['uniqname']))
 
 </style>
 
-
->>>>>>> c9b27dbd2f82be3bb3f4d809094af39543a11bbc
-
+<script type="text/javascript" src="geoloc.js"></script>
 <script type="text/javascript">
-$(document).ready(
-  function()
-  {
-    var ajaxCall = $.ajax("ajax/event_list.php")
-    .done
-    (
-        function(result)
-        {
-            alert("success!");
-            $(".tableOfEvents").append(result);
-        }
-    )
-    .fail(function(result){alert("failed....");})
-}
-
-
-
-
 $(function() {
+
   $(".logout").click(
   	function()
   	{
@@ -106,6 +93,12 @@ $(function() {
   		window.location = "index.php";
   	}
   );
+
+  $(".tableOfEvents").on("click", ".event_item", function() {
+
+    var event_id = $(this).find('.event_id').html();
+    window.location = "confirm.php?event_id=" + event_id;
+  });
 });
 </script>
 

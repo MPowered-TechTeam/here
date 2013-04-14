@@ -1,4 +1,5 @@
 <?php
+include("../include/mysql_connect.php");
 
 ?>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -57,30 +58,13 @@ ORDER BY `distance`";
 	while ($stmt->fetch()) {
 
 		echo "<tr class='event_item'>
-				<td>$id</td>		
+				<td class='event_id'>$id</td>		
 				<td>$name</td>	
 				<td>$creator</td>
 				<td>$distance</td>
 			</tr>
 			";
 	}
-
-
-function connect_to_db_with_sqli() {
-	####################################
-	# Database connection information   #
-	#####################################
-
-	$hostname = "webapps-db.web.itd.umich.edu/mpowered";
-	$database = "mpowered";
-	$username = "mpowered";
-	$password = "halifax92";
-
-	$conn = new mysqli($hostname, $username, $password, $database) or die("<p> Error connecting to database. </p>");
-
-	return $conn;
-}
-
 
 ?>
 </table>
