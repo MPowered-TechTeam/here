@@ -12,7 +12,7 @@ $event_id = $_REQUEST['event_id'];
 $uniqname = $_COOKIE['uniqname'];
 
 if (!isset($_REQUEST['event_id'])) {
-	
+
 	die("ERROR: Please specify event_id. 'confirm.php?event_id='");
 }
 
@@ -25,11 +25,10 @@ $stmt->bind_result(
 	$event_name
 	);
 $stmt->execute();
-if ($stmt->num_rows == 0) {
+if (!$stmt->fetch()) {
 
 	die("ERROR: Invalid event_id");
 }
-$stmt->fetch();
 $stmt->close();
 
 // check the table to make sure they haven't signed in already

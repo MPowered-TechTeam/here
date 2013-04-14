@@ -3,7 +3,7 @@ window.onload = init;
 function init()
 {	
 	getmylocation();
-	var call = setInterval(getmylocation, 5000);
+	//var call = setInterval(getmylocation, 5000);
 }
 //clearInterval(getmylocation) --- if you want to stop it
 

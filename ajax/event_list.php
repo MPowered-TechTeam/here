@@ -30,7 +30,7 @@ SELECT `id`, `name`, `creator`,
 )
 AS distance
 FROM `event`
-HAVING `distance` < 5
+HAVING `distance` < 0.06
 ORDER BY `distance`";
 	
 
