@@ -2,6 +2,7 @@
 <?php
 
 include("include/mysql_connect.php");
+include("include/functions.php");
 
 $conn = connect_to_db_with_sqli();
 
@@ -16,20 +17,7 @@ if (!isset($_REQUEST['event_id'])) {
 	die("ERROR: Please specify event_id. 'confirm.php?event_id='");
 }
 
-$query = "SELECT name FROM `event` WHERE id=?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param('d', 
-	$event_id
-	);
-$stmt->bind_result(
-	$event_name
-	);
-$stmt->execute();
-if (!$stmt->fetch()) {
-
-	die("ERROR: Invalid event_id");
-}
-$stmt->close();
+$event_name = get_event_name($event_id);
 
 // check the table to make sure they haven't signed in already
 $check = "SELECT * FROM attend WHERE event_id=? AND uniqname=?";
