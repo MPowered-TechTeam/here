@@ -7,8 +7,17 @@ include("include/mysql_connect.php");
 if(!isset($_COOKIE['uniqname']))
 	header( 'Location: index.php');
 
+$conn = connect_to_db_with_sqli();
 //Check if user created event
 
+$check = "SELECT * FROM attend WHERE uniqname=?";
+$stmt = $conn->prepare($check);
+$stmt->bind_param('s', 
+  $_COOKIE['uniqname']
+  );
+$stmt->execute();
+$stmt->store_result();
+$numrows = $stmt->num_rows;
 ?>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -21,7 +30,7 @@ if(!isset($_COOKIE['uniqname']))
     <a class="brand" href="#"><span id="uniqtext"><?php echo $_COOKIE["uniqname"]?><span></a>
     <ul class="nav pull-right">
       <li class="icon"><a href="#"><img class="logout" src="images/exit.png"></a></li>
-      <li class="icon"><a href="create_event.php"><img class="plus1" src="images/plus.png"></a></li>
+      <li class="icon"><a id='link' href="create_event.php"><img class="plus1" src="images/plus.png"></a></li>
     </ul>
   </div>
 </div>
@@ -85,6 +94,12 @@ if(!isset($_COOKIE['uniqname']))
 <script type="text/javascript" src="geoloc.js"></script>
 <script type="text/javascript">
 $(function() {
+
+  if(<?php echo $numrows?> == 0)
+  {
+    $('.plus1').attr('src', 'images/about_touch.png');
+    $('#link').attr('href', 'manage_event.php');
+  }
 
   $(".logout").click(
   	function()
