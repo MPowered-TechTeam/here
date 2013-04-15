@@ -10,14 +10,18 @@ if(!isset($_COOKIE['uniqname']))
 $conn = connect_to_db_with_sqli();
 //Check if user created event
 
-$check = "SELECT * FROM attend WHERE uniqname=?";
+$check = "SELECT id FROM event WHERE active=1 AND creator=?";
 $stmt = $conn->prepare($check);
 $stmt->bind_param('s', 
   $_COOKIE['uniqname']
   );
+$stmt->bind_result(
+  $event_id
+  );
 $stmt->execute();
 $stmt->store_result();
 $numrows = $stmt->num_rows;
+$stmt->fetch();
 ?>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -95,10 +99,10 @@ $numrows = $stmt->num_rows;
 <script type="text/javascript">
 $(function() {
 
-  if(<?php echo $numrows?> == 0)
+  if(<?php echo $numrows?> > 0)
   {
     $('.plus1').attr('src', 'images/about_touch.png');
-    $('#link').attr('href', 'manage_event.php');
+    $('#link').attr('href', 'manage_event.php?event_id=<?php echo $event_id; ?>');
   }
 
   $(".logout").click(

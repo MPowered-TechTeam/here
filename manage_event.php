@@ -50,7 +50,6 @@
 					data: {event_id : <?php echo $event_id; ?>},
 					success: function(text) {
 
-						alert(text);
 						window.location = "nav.php";
 					},
 					failure: function(text) {
