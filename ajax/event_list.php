@@ -31,7 +31,7 @@ SELECT `id`, `name`, `creator`,
 AS distance
 FROM `event`
 WHERE active=1 
-HAVING `distance` < 0.06
+HAVING `distance` < 0.1
 ORDER BY `distance`";
 	
 
