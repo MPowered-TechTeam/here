@@ -101,7 +101,7 @@ $(function() {
 
   if(<?php echo $numrows?> > 0)
   {
-    $('.plus1').attr('src', 'images/about_touch.png');
+    $('.plus1').attr('src', 'images/about.png');
     $('#link').attr('href', 'manage_event.php?event_id=<?php echo $event_id; ?>');
   }
 
