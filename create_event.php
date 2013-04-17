@@ -1,6 +1,9 @@
 <?php
 
+include("include/functions.php");
+check_login();
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -63,7 +66,8 @@
 		        data: $('.login_form').serialize(),
 		        success: function(text) {
 
-		        	$('.result_text').html(text);
+		        	window.location = "nav.php";
+		        	//$('.result_text').html(text);
 		        }
         	});
 	  }

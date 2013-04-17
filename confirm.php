@@ -4,16 +4,15 @@
 include("include/mysql_connect.php");
 include("include/functions.php");
 
+check_login();
 $conn = connect_to_db_with_sqli();
 
-//$id = $_GET[]; 
-//$event_id;
-//$uniqname
 $event_id = $_REQUEST['event_id'];
 $uniqname = $_COOKIE['uniqname'];
 
 if (!isset($_REQUEST['event_id'])) {
 
+	header('Location: nav.php');
 	die("ERROR: Please specify event_id. 'confirm.php?event_id='");
 }
 
