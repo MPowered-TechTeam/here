@@ -26,8 +26,9 @@ function displayevents(position)
 			//if distance less than specified radius return that event
 		//ajax constructs a table
 	var ajaxCall = $.ajax({
-      url: "ajax/event_list.php",
-      data: {my_long: yourlong, my_lat: yourlat}
+		type: "POST",
+		url: "ajax/event_list.php",
+		data: {my_long: yourlong, my_lat: yourlat}
     })
     .done
     (
@@ -36,6 +37,6 @@ function displayevents(position)
             $(".tableOfEvents").html(result);
         }
     )
-    .fail(function(result){alert("failed....");})
+    .fail(function(result){alert("failed....");});
 }
 
