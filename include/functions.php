@@ -35,4 +35,17 @@ function remove_event($event_id) {
 	$stmt->close();
 }
 
+function check_login() {
+
+
+
+}
+
+function owns_event($event_id, $uniqname) {
+
+
+
+	return true;
+} 
+
 ?>

@@ -4,7 +4,7 @@ $eventname = $_REQUEST['event'];
 $messagebody = $_REQUEST['message'];
 
 // multiple recipients
-$to  = '$uniqname . '@umich.edu'';
+$to  = $uniqname . '@umich.edu';
 
 // subject
 $subject = 'Attendee Names for' . $eventname;
