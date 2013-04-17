@@ -18,7 +18,7 @@
 	<h1>Radius</h1>
 	<form class="login_form" action="nav.php">
 		<br />
-		<input id="uniqname" name="uniqname"class="input-taller" type="text" placeholder="Uniqname" name="login"><br />
+		<input class="uniqname input-taller" name="uniqname" type="text" placeholder="Uniqname" name="login"><br />
 		<button type="submit" class="btn btn-inverse">Sign In</button>
 		<!--<button class="btn cancel">Cancel</button>-->
 		<div class="result_text"></div>

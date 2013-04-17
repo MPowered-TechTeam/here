@@ -50,3 +50,55 @@ body {
 	/* W3C Markup, IE10 Release Preview */ 
 	background-image: radial-gradient(circle farthest-side at center, #FFFC68 0%, #FFFC00 100%);
 }
+
+h1 {
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 225px;
+	margin-bottom: 25px;
+	font-size: 72px;
+	vertical-align: center;
+}
+
+.create_event_form {
+	text-align: center;
+	vertical-align: center;
+	margin: 0 auto;
+}
+
+.container {
+
+	line-height: 180%;
+}
+
+
+.create_event_form button {
+	width: 165px;
+}
+
+.title {
+	text-align: center;
+}
+
+.catalog {
+	float: right;
+}
+
+.everything {
+	height: 100%;
+	vertical-align: center;
+}
+
+.input-taller {
+	height: 50px;
+	width: 330px;
+}
+
+.details {
+	background-color: white;
+	color: black;
+}
+
+.event_item:hover {
+	color: #DDDDDD;
+}
