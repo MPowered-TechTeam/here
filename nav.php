@@ -85,12 +85,12 @@ $stmt->fetch();
 
 <div class="tableOfEvents">
   <table>
-    <th>
+    <tr>
       <td>ID</td>
       <td>Name</td>
       <td>Creator</td>
       <td>Distance</td>
-    </th>
+    </tr>
   </table>
 </div>
 

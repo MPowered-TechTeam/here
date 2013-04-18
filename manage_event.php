@@ -27,8 +27,8 @@
 </head>
 <body>
 	<h1 class="event_name"><?php echo get_event_name($event_id); ?></h1>
-	<button type="submit" class="btn btn-inverse end_event">End Event</button>
-	<button type="submit" class="btn btn-inverse email_creator">Email Attendies List</button>
+	<button class="btn btn-inverse end_event">End Event</button>
+	<button class="btn btn-inverse email_creator">Email Attendies List</button>
 	<div class="attendees">
 		<?php
 			

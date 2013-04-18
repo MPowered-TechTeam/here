@@ -24,7 +24,7 @@ check_login();
 		<input type="hidden" id="lat" name="lat" value="0"></input>
 		<input type="hidden" id="long" name="long" value="0"></input>
 		<input class="input-taller" type="text" placeholder="Event name" name="name" required><br/>
-		<button type="submit" class="btn btn-inverse" >Submit</button>
+		<button class="btn btn-inverse" >Submit</button>
 		<button class="btn cancel">Cancel</button>
 	</form>
 	<br />
@@ -38,9 +38,13 @@ check_login();
 <script>
     $(function() {
 
-	    $(".login_form").submit(function() {
+	    $(".create_event_form").submit(function() {
 	    	getLocation();
         	return false;
+        });
+        $(".cancel").click(function() {
+        	
+        	window.location = "nav.php";
         });
     });
 
@@ -62,7 +66,7 @@ check_login();
 			$.ajax({
         		type: "POST",
 		        url: "ajax/create_event_database.php",
-		        data: $('.login_form').serialize(),
+		        data: $('.create_event_form').serialize(),
 		        success: function(text) {
 
 		        	window.location = "nav.php";
