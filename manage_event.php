@@ -24,31 +24,37 @@
 	<title>Submit Page</title>
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="nav_style.css" rel="stylesheet" media="screen">
 </head>
 <body>
 	<h1 class="event_name"><?php echo get_event_name($event_id); ?></h1>
-	<button class="btn btn-inverse end_event">End Event</button>
-	<button class="btn btn-inverse email_creator">Email Attendies List</button>
-	<div class="attendees">
-		<?php
-			
-			$query = "SELECT uniqname FROM `attend` WHERE event_id=?";
-			$stmt = $conn->prepare($query);
-			$stmt->bind_param('d', 
-				$event_id
-				);
-			$stmt->bind_result(
-				$uniqname
-				);
-			$stmt->execute();
+	<div class="manage_event_form">
+		<button type="submit" class="btn btn-inverse end_event">End Event</button>
+		<button type="submit" class="btn btn-inverse email_creator">Email Attendies List</button>
+		<div class="attendees">
+			<table class="table">
+				<th>Uniqname</th>
+				<?php
+					
+					$query = "SELECT uniqname FROM `attend` WHERE event_id=?";
+					$stmt = $conn->prepare($query);
+					$stmt->bind_param('d', 
+						$event_id
+						);
+					$stmt->bind_result(
+						$uniqname
+						);
+					$stmt->execute();
 
-			//$query = "SELECT uniqname, event_id FROM attended WHERE event_id=?";
-	 		while($stmt->fetch()) 
-			{ 
-			 	Print "".$uniqname .  " <br>";
-			} 
- 			$stmt->close();
-		?>
+					//$query = "SELECT uniqname, event_id FROM attended WHERE event_id=?";
+			 		while($stmt->fetch()) 
+					{ 
+					 	echo "<tr><td>$uniqname</td></tr>";
+					} 
+		 			$stmt->close();
+				?>
+			</table>
+		</div>
 	</div>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
