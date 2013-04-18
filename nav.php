@@ -69,30 +69,30 @@ $stmt->fetch();
     width: 100%;
     height: 100px;
   }
+
+  .tableOfEvents
+  {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .tableOfEvents tr:hover {
+
+    background-color: #FFFFFF;
+  }
 </style>
 //*************************************************
 
 <div class="tableOfEvents">
   <table>
-    <tr>
+    <th>
       <td>ID</td>
       <td>Name</td>
       <td>Creator</td>
       <td>Distance</td>
-    </tr>
+    </th>
   </table>
 </div>
-
-<style>
-  .tableOfEvents
-  {
-    margin: 0 auto;
-    width: 100%;
-
-  }
-
-
-</style>
 
 <script type="text/javascript" src="geoloc.js"></script>
 <script type="text/javascript">

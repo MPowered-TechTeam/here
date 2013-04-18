@@ -49,12 +49,12 @@ ORDER BY `distance`";
 		$distance
 		);
 
-	echo "<tr>
+	echo "<th>
 			<td>ID</td>
 			<td>Name</td>
 			<td>Creator</td>
 			<td>Distance</td>
-		</tr>";
+		</th>";
 
 	while ($stmt->fetch()) {
 
