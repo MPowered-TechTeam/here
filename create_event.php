@@ -19,7 +19,7 @@ check_login();
 <div id="add_form" >
 
 	<h1>Create Event</h1>
-	<form class="login_form">
+	<form class="create_event_form">
 		<br />
 		<input type="hidden" id="lat" name="lat" value="0"></input>
 		<input type="hidden" id="long" name="long" value="0"></input>
