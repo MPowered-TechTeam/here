@@ -39,48 +39,14 @@ $stmt->fetch();
   </div>
 </div>
 
-
-//JASON"S STUFFFFF... I WAS ONLY TESTINGGGGG
-//***********************************************
-<div class = "test_table">
-     <table id = "potatoes">
-       <thead>
-          <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Creator</td>
-            <td>Distance</td>
-          </tr>
-        </thead>
-        <tb class='event_item'>
-          <td>hello</td>    
-          <td>my</td>  
-          <td>nameis</td>
-          <td>jason</td>
-        </tb>
-    </table>
-</div>
-<style>
-  .test_table
-  {
-    border: 1px solid black;
-  }
-  .potatoes
-  {
-    width: 100%;
-    height: 100px;
-  }
-</style>
-//*************************************************
-
 <div class="tableOfEvents">
   <table>
-    <tr>
+    <!--<tr>
       <td>ID</td>
       <td>Name</td>
       <td>Creator</td>
       <td>Distance</td>
-    </tr>
+    </tr>-->
   </table>
 </div>
 

@@ -18,6 +18,11 @@
 	width: 50px;
 }
 
+.hidden
+{
+	display: none;
+}
+
 .plus1
 {
 	margin-left: 10px;
