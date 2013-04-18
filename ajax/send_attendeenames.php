@@ -1,16 +1,16 @@
 <?php
 $uniqname = $_COOKIE['uniqname'];
-$eventname = $_REQUEST['event'];
+$eventname = $_REQUEST['event_name'];
 $messagebody = $_REQUEST['message'];
 
 // multiple recipients
 $to  = $uniqname . '@umich.edu';
 
 // subject
-$subject = 'Attendee Names for' . $eventname;
+$subject = 'Sign-in for ' . $eventname;
 
 // message
-$message = $messagebody;
+$message = "uniqname list:\n" . $messagebody;
 
 // To send HTML mail, the Content-type header must be set
 $headers  = 'MIME-Version: 1.0' . "\r\n";

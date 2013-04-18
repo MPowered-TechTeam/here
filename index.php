@@ -18,7 +18,7 @@
 	<h1>Radius</h1>
 	<form class="login_form" action="nav.php">
 		<br />
-		<input class="uniqname input-taller" name="uniqname" type="text" placeholder="Uniqname" name="login"><br />
+		<input class="uniqname input-taller" id="uniqname" name="uniqname" type="text" placeholder="Uniqname" name="login"><br />
 		<button type="submit" class="btn btn-inverse">Sign In</button>
 		<!--<button class="btn cancel">Cancel</button>-->
 		<div class="result_text"></div>
@@ -28,9 +28,8 @@
 <script>
 
    $(function() {
-	    $(".login_form").submit(function() {    	
+	    $(".login_form").submit(function() {  
 	    	setCookie("uniqname", document.getElementById("uniqname").value, 365);
-
 	    	return true;
         });
     });

@@ -80,7 +80,7 @@
 				$.ajax({
 		            type: "POST",
 					url: "ajax/send_attendeenames.php",
-					data: {event_name : event_name_to_send, message_body : message_body_to_send},
+					data: {event_name : event_name_to_send, message : message_body_to_send},
 					success: function(text) {
 
 						alert("email sent");
