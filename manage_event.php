@@ -4,8 +4,20 @@
 	include("include/mysql_connect.php");
 	include("include/functions.php");
 
+	check_login();
 	$conn = connect_to_db_with_sqli();
+
+	if (!isset($_REQUEST['event_id'])) {
+
+		header('Location: nav.php');
+		die("ERROR: Please specify event_id. 'confirm.php?event_id='");
+	}
 	$event_id = $_REQUEST['event_id'];
+
+	if (!owns_event($event_id, $_COOKIE['uniqname'])) {
+
+		header("Location: nav.php");
+	}
 ?>
 
 <head>
@@ -16,7 +28,7 @@
 <body>
 	<h1 class="event_name"><?php echo get_event_name($event_id); ?></h1>
 	<button type="submit" class="btn btn-inverse end_event">End Event</button>
-	<button type="submit" class="btn btn-inverse email_creator">Email Attendees</button>
+	<button type="submit" class="btn btn-inverse email_creator">Email Attendies List</button>
 	<div class="attendees">
 		<?php
 			

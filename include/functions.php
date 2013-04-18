@@ -37,14 +37,29 @@ function remove_event($event_id) {
 
 function check_login() {
 
-
-
+	//Check if cookie isn't set
+	if(!isset($_COOKIE['uniqname']))
+		header( 'Location: index.php');
 }
 
 function owns_event($event_id, $uniqname) {
 
+	$conn = connect_to_db_with_sqli();
 
+	$query = "SELECT * FROM `event` WHERE id=?";
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param('d', 
+		$event_id
+		);
+	$stmt->execute();
+	$stmt->store_result();
+	$num_row = $stmt->num_rows();
+	$stmt->close();
 
+	if ($num_row == 0) {
+
+		return false;
+	}
 	return true;
 } 
 

@@ -2,10 +2,9 @@
 
 <?php
 include("include/mysql_connect.php");
+include("include/functions.php");
 
-//Check if cookie isn't set
-if(!isset($_COOKIE['uniqname']))
-	header( 'Location: index.php');
+check_login();
 
 $conn = connect_to_db_with_sqli();
 //Check if user created event
