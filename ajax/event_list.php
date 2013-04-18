@@ -18,7 +18,7 @@ include("../include/mysql_connect.php");
 	$query = "
 SELECT `id`, `name`, `creator`, 
 (
-  (6371 
+  (6371 * 2000 
      * acos(
         cos(radians(?))
         * cos(radians(`lat`))
@@ -31,7 +31,7 @@ SELECT `id`, `name`, `creator`,
 AS distance
 FROM `event`
 WHERE active=1 
-HAVING `distance` < 0.1
+HAVING `distance` < 100
 ORDER BY `distance`";
 	
 
@@ -50,7 +50,7 @@ ORDER BY `distance`";
 		);
 
 	echo "<tr>
-			<td>ID</td>
+			<td class = 'hidden'>ID</td>
 			<td>Name</td>
 			<td>Creator</td>
 			<td>Distance</td>
@@ -59,10 +59,10 @@ ORDER BY `distance`";
 	while ($stmt->fetch()) {
 
 		echo "<tr class='event_item'>
-				<td class='event_id'>$id</td>		
+				<td class='event_id hidden'>$id</td>		
 				<td>$name</td>	
 				<td>$creator</td>
-				<td>$distance</td>
+				<td>$distance m</td>
 			</tr>
 			";
 	}

@@ -37,28 +37,6 @@ $stmt->fetch();
     </ul>
   </div>
 </div>
-
-
-//JASON"S STUFFFFF... I WAS ONLY TESTINGGGGG
-//***********************************************
-<div class = "test_table">
-     <table id = "potatoes">
-       <thead>
-          <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Creator</td>
-            <td>Distance</td>
-          </tr>
-        </thead>
-        <tb class='event_item'>
-          <td>hello</td>    
-          <td>my</td>  
-          <td>nameis</td>
-          <td>jason</td>
-        </tb>
-    </table>
-</div>
 <style>
   .test_table
   {
@@ -76,21 +54,31 @@ $stmt->fetch();
     width: 100%;
   }
 
-  .tableOfEvents tr:hover {
+  .event_item:hover {
 
     background-color: #FFFFFF;
+    color: #000000;
+    cursor: pointer;
   }
-</style>
-//*************************************************
 
+  .instructions {
+    font-size: 30px;
+    text-align: center;
+  }
+
+</style>
+<div class="instructions">
+  Click Event To Sign-In
+</div>
+<br />
 <div class="tableOfEvents">
   <table>
-    <tr>
+    <!--<tr>
       <td>ID</td>
       <td>Name</td>
       <td>Creator</td>
       <td>Distance</td>
-    </tr>
+    </tr>-->
   </table>
 </div>
 
