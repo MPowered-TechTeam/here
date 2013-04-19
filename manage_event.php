@@ -171,7 +171,7 @@
 				$.ajax({
 					type: "POST",
 					url: "ajax/add_uniqname.php",
-					data: {event_id : in_event_id, uniqname : in_uniqname},
+					data: {event_id : in_event_id, uniqname_passed : in_uniqname},
 					success: function(text) {
 
 						$(".sign_in_list_title").popover({

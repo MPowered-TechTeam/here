@@ -44,7 +44,7 @@ function get_attendies($event_id) {
 	$stmt->close();
 }
 
-function sign_in_unqiname($uniqname, $event_id) {
+function sign_in_uniqname($uniqname_passed, $event_id) {
 
 	$conn = connect_to_db_with_sqli();
 
@@ -53,7 +53,7 @@ function sign_in_unqiname($uniqname, $event_id) {
 	$stmt = $conn->prepare($check);
 	$stmt->bind_param('is',
 		$event_id, 
-		$uniqname
+		$uniqname_passed
 		);
 	$stmt->execute();
 	$stmt->store_result();
@@ -65,14 +65,14 @@ function sign_in_unqiname($uniqname, $event_id) {
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param('ds', 
 			$event_id,
-			$uniqname
+			$uniqname_passed
 			);
 		$stmt->execute();
-		$message = $uniqname . " signed-in.";
+		$message = $uniqname_passed . " signed-in.";
 	}
 	else 
 	{
-		$message = $uniqname . " already signed-in.";
+		$message = $uniqname_passed . " already signed-in.";
 	}
 
 	return $message;
