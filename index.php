@@ -43,8 +43,24 @@
    $(function() {
 	    $(".login_form").submit(function() {  
 
-	    	if (document.getElementById("uniqname").value == '')
+	    	var uniqname_input = document.getElementById("uniqname").value.toLowerCase();
+
+	    	if (uniqname_input == '') {
+	    	
 	    		return false;
+	    	}
+
+	    	if (uniqname_input.match(/[a-z]/) != uniqname_input) {
+
+	    		var text = "uniqname should only contain letters"
+	    		$(".uniqname").popover('destroy');
+				$(".uniqname").popover({
+					content: "<div style='text-align: center;'>" + text + "</div>",
+					trigger: "manual"
+				});
+				$(".uniqname").popover('show');
+	    		return false;
+	    	}
 
 	    	setCookie("uniqname", document.getElementById("uniqname").value, 365);
 	    	return true;
