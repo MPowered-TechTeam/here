@@ -47,6 +47,8 @@ else
 
 ?>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" type="text/css" href="style.css" />
 <style type="text/css">
@@ -56,6 +58,20 @@ else
 		top:50%;
 		width: 100%;
 	}
+
+	/* Landscape phone to portrait tablet */
+    @media (max-width: 767px) { 
+
+    }
+     
+    /* Landscape phones and down */
+    @media (max-width: 480px) {
+	    
+		.confirm_message button {
+			width: 40%;
+			height: 5em;
+		}
+    }
 </style>
 <body>
 	<div class="confirm_message">
@@ -63,8 +79,8 @@ else
 			<strong>Awesome, <?php echo $_COOKIE["uniqname"];?>! 
 				<?php echo $message; ?>.</strong>
 		</div>
+		<a class="btn btn-inverse creat" href="nav.php"><i class="icon-arrow-left"></i> Event List</a>
 	</div>
-	<a class="btn btn-inverse" href="nav.php"><i class="icon-arrow-left"></i> Event List</a>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>

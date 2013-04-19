@@ -22,6 +22,62 @@ function get_event_name($event_id) {
 	return $event_name;
 }
 
+function get_attendies($event_id) {
+
+	$conn = connect_to_db_with_sqli();
+
+	$query = "SELECT uniqname FROM `attend` WHERE event_id=? ORDER BY uniqname";
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param('d', 
+		$event_id
+		);
+	$stmt->bind_result(
+		$uniqname
+		);
+	$stmt->execute();
+
+	//$query = "SELECT uniqname, event_id FROM attended WHERE event_id=?";
+	while($stmt->fetch()) 
+	{ 
+	 	echo "<tr><td>$uniqname</td></tr>";
+	} 
+	$stmt->close();
+}
+
+function sign_in_unqiname($uniqname, $event_id) {
+
+	$conn = connect_to_db_with_sqli();
+
+	// check the table to make sure they haven't signed in already
+	$check = "SELECT * FROM attend WHERE event_id=? AND uniqname=?";
+	$stmt = $conn->prepare($check);
+	$stmt->bind_param('is',
+		$event_id, 
+		$uniqname
+		);
+	$stmt->execute();
+	$stmt->store_result();
+
+	if($stmt->num_rows == 0)
+	{
+		// then sign them in
+		$query = "INSERT INTO `attend`(`event_id`, `uniqname`) VALUES (?, ?)";
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param('ds', 
+			$event_id,
+			$uniqname
+			);
+		$stmt->execute();
+		$message = $uniqname . " signed-in.";
+	}
+	else 
+	{
+		$message = $uniqname . " already signed-in.";
+	}
+
+	return $message;
+}
+
 function remove_event($event_id) {
 
 	$conn = connect_to_db_with_sqli();

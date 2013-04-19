@@ -9,10 +9,36 @@ check_login();
 	<head>
 		<title>Create Event</title>
 		<!-- Bootstrap -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	  	<!--<link rel="stylesheet" type="text/css" href="style.css" />-->
 	  	<link rel="stylesheet" type="text/css" href="pageslide/jquery.pageslide.css" />
 	  	<link rel="stylesheet" type="text/css" href="nav_style.css" />
+	  	<style type="text/css">
+	    /* Landscape phone to portrait tablet */
+	    @media (max-width: 767px) { 
+
+	    }
+	     
+	    /* Landscape phones and down */
+	    @media (max-width: 480px) { 
+
+	    	h1 {
+				margin: 0 auto;
+				text-align: center;
+				margin-top: 150px;
+				margin-bottom: 25px;
+				line-height: 72px;
+				font-size: 72px;
+				vertical-align: center;
+			}
+			.create_event_form button {
+				width: 40%;
+				height: 5em;
+			}
+	    }
+		</style>
 	</head>
 <body class="everything">
 

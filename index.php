@@ -6,11 +6,24 @@
 ?>
 <!DOCTYPE html>
 <head>
-	<title>Submit Page</title>
+	<title>Radius</title>
 	<!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link rel="stylesheet" type="text/css" href="style.css" />
+	<style type="text/css">
 
+    /* Landscape phone to portrait tablet */
+    @media (max-width: 767px) { 
+
+    }
+     
+    /* Landscape phones and down */
+    @media (max-width: 480px) { 
+
+    }
+	</style>
 	<script src="index_cookie.js"></script>
 
 </head>
@@ -29,6 +42,10 @@
 
    $(function() {
 	    $(".login_form").submit(function() {  
+
+	    	if (document.getElementById("uniqname").value == '')
+	    		return false;
+
 	    	setCookie("uniqname", document.getElementById("uniqname").value, 365);
 	    	return true;
         });

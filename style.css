@@ -8,6 +8,9 @@
 }
 
 body {
+
+	background-color: #FFFC68;
+
 	/* IE10 Consumer Preview */ 
 	background-image: -ms-radial-gradient(center, circle farthest-side, #FFFC68 0%, #FFFC00 100%);
 

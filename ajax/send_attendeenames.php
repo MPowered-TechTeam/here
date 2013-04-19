@@ -7,10 +7,10 @@ $messagebody = $_REQUEST['message'];
 $to  = $uniqname . '@umich.edu';
 
 // subject
-$subject = 'Sign-in for ' . $eventname;
+$subject = $eventname . 'Sign-in List';
 
 // message
-$message = "uniqname list:\n" . $messagebody;
+$message = $messagebody;
 
 // To send HTML mail, the Content-type header must be set
 $headers  = 'MIME-Version: 1.0' . "\r\n";

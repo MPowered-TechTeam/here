@@ -28,15 +28,15 @@ function displayevents(position)
 	var ajaxCall = $.ajax({
 		type: "POST",
 		url: "ajax/event_list.php",
-		data: {my_long: yourlong, my_lat: yourlat}
-    })
-    .done
-    (
-        function(result)
-        {
-            $(".tableOfEvents").html(result);
-        }
-    )
-    .fail(function(result){alert("failed....");});
+		data: {my_long: yourlong, my_lat: yourlat},
+		success: function(result) {
+
+		    $(".tableOfEvents").html(result);
+		},
+		failure: function(result) {
+
+			alert("failed....");
+		}
+    });
 }
 

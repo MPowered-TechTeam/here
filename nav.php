@@ -25,8 +25,49 @@ $stmt->fetch();
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="index_cookie.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="nav_style.css" rel="stylesheet" media="screen">
+<style type="text/css">
+
+
+  /* Landscape phone to portrait tablet */
+  @media (max-width: 767px) { 
+
+  }
+   
+  /* Landscape phones and down */
+  @media (max-width: 480px) { 
+    #uniqtext
+    {
+      color: #FFF;
+      font-size: 1.5em;
+      vertical-align: middle;
+      text-shadow: none;
+    }
+    .logout
+    {
+      margin-right: 0em;
+      margin-left: 0em;
+      height: 2em;
+      width: 2em;
+    }
+
+    .plus1
+    {
+      margin-left: 0em;
+      margin-right: 0em;
+      height: 2em;
+      width: 2em;
+    }
+
+    .instructions {
+      font-size: 2em;
+      text-align: center;
+    }
+  }
+</style>
 
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
@@ -37,36 +78,6 @@ $stmt->fetch();
     </ul>
   </div>
 </div>
-<style>
-  .test_table
-  {
-    border: 1px solid black;
-  }
-  .potatoes
-  {
-    width: 100%;
-    height: 100px;
-  }
-
-  .tableOfEvents
-  {
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .event_item:hover {
-
-    background-color: #FFFFFF;
-    color: #000000;
-    cursor: pointer;
-  }
-
-  .instructions {
-    font-size: 30px;
-    text-align: center;
-  }
-
-</style>
 <div class="instructions">
   Click Event To Sign-In
 </div>

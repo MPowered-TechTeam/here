@@ -2,9 +2,6 @@
 include("../include/mysql_connect.php");
 
 ?>
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<!--<link rel="stylesheet" type="text/css" href="style.css" />-->
-<body class="slider_background">
 
 <table class="table">
 <?php
@@ -31,7 +28,7 @@ SELECT `id`, `name`, `creator`,
 AS distance
 FROM `event`
 WHERE active=1 
-HAVING `distance` < 100
+HAVING `distance` < 200
 ORDER BY `distance`";
 	
 
@@ -51,9 +48,9 @@ ORDER BY `distance`";
 
 	echo "<tr>
 			<td class = 'hidden'>ID</td>
-			<td>Name</td>
-			<td>Creator</td>
-			<td>Distance</td>
+			<th>Name</th>
+			<th>Creator</th>
+			<th>Distance</th>
 		</tr>";
 
 	while ($stmt->fetch()) {
@@ -62,13 +59,10 @@ ORDER BY `distance`";
 				<td class='event_id hidden'>$id</td>		
 				<td>$name</td>	
 				<td>$creator</td>
-				<td>$distance m</td>
+				<td>". round($distance) ." m</td>
 			</tr>
 			";
 	}
 
 ?>
 </table>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-</body>
